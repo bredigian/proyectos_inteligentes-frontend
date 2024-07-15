@@ -12,8 +12,8 @@ export const Header = () => {
   const handleMenu = () => setShowMenu(!showMenu);
 
   return (
-    <header className='sticky top-0'>
-      <div className='relative z-50 flex w-full items-center justify-between bg-white px-6 py-5'>
+    <header className='sticky top-0 z-50'>
+      <div className='relative z-40 flex w-full items-center justify-between bg-white px-6 py-5'>
         <img alt='Logo de Proyectos Inteligentes' src={logo} className='w-32' />
         <button type='button' onClick={handleMenu}>
           <img alt='Icono de Menú' src={menuIcon} className='w-10' />
@@ -21,7 +21,7 @@ export const Header = () => {
       </div>
       <nav
         className={cn(
-          'absolute w-full bg-white py-4 duration-200 ease-in-out',
+          'absolute z-30 w-full bg-white py-4 duration-200 ease-in-out',
           !showMenu ? '-translate-y-[177px]' : 'translate-y-0',
         )}
       >

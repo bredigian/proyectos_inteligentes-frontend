@@ -12,6 +12,9 @@
   "dependencies": {
     "@fontsource/dm-sans": "^5.0.21",
     "clsx": "^2.1.1",
+    "embla-carousel": "^8.1.6",
+    "embla-carousel-autoplay": "^8.1.6",
+    "embla-carousel-react": "^8.1.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.24.1",
