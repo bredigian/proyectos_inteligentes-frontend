@@ -15,7 +15,7 @@ export default {
           gray: {
             'ultra-light': '#F2F2F2',
             light: '#E5E5E5',
-            'semi-light': 'A6A6A6',
+            'semi-light': '#A6A6A6',
             normal: '#999999',
           },
         },
