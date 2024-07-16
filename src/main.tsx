@@ -7,6 +7,7 @@ import './index.css';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
+import Catalogue from './pages/catalogue-page.tsx';
 import Home from './pages/home-page.tsx';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: '/services',
         element: <Services />,
+      },
+      {
+        path: '/catalogue',
+        element: <Catalogue />,
       },
     ],
   },
