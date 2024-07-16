@@ -8,6 +8,7 @@ import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Catalogue from './pages/catalogue-page.tsx';
+import Contact from './pages/contact-page.tsx';
 import Home from './pages/home-page.tsx';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/catalogue',
         element: <Catalogue />,
+      },
+      {
+        path: '/contact',
+        element: <Contact />,
       },
     ],
   },
