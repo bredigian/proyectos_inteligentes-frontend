@@ -1,3 +1,4 @@
+import { TService } from '../types/services.types';
 import construccionDesktop from '../assets/images/services/desktop/SERV_Construcción.png';
 import construccionMobile from '../assets/images/services/mobile/SERV_Construcción.png';
 import constructionManagmentDesktop from '../assets/images/services/desktop/SERV_ConstructionManagment.png';
@@ -12,13 +13,6 @@ import remodelacionesDesktop from '../assets/images/services/desktop/SERV_Remode
 import remodelacionesMobile from '../assets/images/services/mobile/SERV_Remodelaciones.png';
 import supervisionTecnicaDesktop from '../assets/images/services/desktop/SERV_Supervision.png';
 import supervisionTecnicaMobile from '../assets/images/services/mobile/SERV_Supervision.png';
-
-type TService = {
-  title: string;
-  description: string;
-  imgMobile: string;
-  imgDesktop: string;
-};
 
 export const SERVICES: TService[] = [
   {

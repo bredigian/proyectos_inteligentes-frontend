@@ -11,7 +11,7 @@ import Home from './pages/home-page.tsx';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RootLayout } from './layouts/root.tsx';
-import Services from './pages/sections-page.tsx';
+import Services from './pages/services-page.tsx';
 
 const router = createBrowserRouter([
   {
