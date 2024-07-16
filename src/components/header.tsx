@@ -21,11 +21,11 @@ export const Header = () => {
       </div>
       <nav
         className={cn(
-          'absolute z-30 w-full bg-white py-4 duration-200 ease-in-out',
-          !showMenu ? '-translate-y-[177px]' : 'translate-y-0',
+          'absolute z-30 h-svh w-3/4 bg-white px-6 py-4 shadow-xl duration-200 ease-in-out',
+          !showMenu ? '-translate-x-full' : 'translate-x-0',
         )}
       >
-        <ul className='flex w-full flex-col items-center gap-4'>
+        <ul className='flex w-full flex-col gap-4'>
           {ROUTES.map((route) => (
             <li
               key={`${route.path}_route`}
@@ -33,10 +33,12 @@ export const Header = () => {
                 'font-semibold',
                 pathname !== route.path
                   ? 'text-pi-gray-normal'
-                  : 'text-pi-blue-light',
+                  : 'text-pi-blue-normal',
               )}
             >
-              <Link to={route.path}>{route.name}</Link>
+              <Link to={route.path} onClick={handleMenu}>
+                {route.name}
+              </Link>
             </li>
           ))}
         </ul>
