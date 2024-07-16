@@ -14,6 +14,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RootLayout } from './layouts/root.tsx';
 import Services from './pages/services-page.tsx';
+import ServicesQuotes from './pages/services-quote-page.tsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: '/services',
         element: <Services />,
+      },
+      {
+        path: '/services/quotes',
+        element: <ServicesQuotes />,
       },
       {
         path: '/catalogue',

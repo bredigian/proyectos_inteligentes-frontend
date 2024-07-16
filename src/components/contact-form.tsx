@@ -1,87 +1,8 @@
-import { FieldErrors, UseFormRegister, useForm } from 'react-hook-form';
+import { TContact, TQuote } from '@/types/contact.types';
 
-import { cn } from '../lib/utils';
+import { Input } from './input';
+import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-
-type TContact = {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-};
-
-type Props = {
-  name: keyof TContact;
-  register: UseFormRegister<TContact>;
-  errors: FieldErrors<TContact>;
-  placeholder: string;
-  type: 'input' | 'textarea';
-
-  active: keyof TContact | null;
-  handleActive: (name: keyof TContact | null) => void;
-
-  actualValue: string;
-};
-
-const Input = ({
-  register,
-  name,
-  errors,
-  placeholder,
-  type,
-  active,
-  handleActive,
-  actualValue,
-}: Props) => (
-  <div className='relative flex flex-col text-sm'>
-    <label
-      htmlFor={name as keyof TContact}
-      className={cn(
-        'absolute rounded-md font-semibold duration-200 ease-in-out',
-        active !== name && !actualValue
-          ? 'ml-2 mt-2 text-pi-gray-normal'
-          : 'ml-1 -translate-y-4 scale-[.80] bg-pi-blue-normal px-2 py-1 text-white',
-      )}
-    >
-      {placeholder}
-    </label>
-    {type === 'input' ? (
-      <input
-        {...register(name as keyof TContact, {
-          required: {
-            value: true,
-            message: 'El atributo es requerido.',
-          },
-        })}
-        id={name}
-        className={cn(
-          'rounded-md border-2 bg-pi-gray-light p-2 text-sm outline-none focus:border-pi-blue-normal',
-          actualValue && 'border-pi-blue-normal',
-        )}
-        onBlur={() => handleActive(null)}
-        onFocus={() => handleActive(name)}
-      />
-    ) : (
-      <textarea
-        {...register(name as keyof TContact, {
-          required: {
-            value: true,
-            message: 'El atributo es requerido.',
-          },
-        })}
-        className={cn(
-          'h-24 resize-none rounded-md border-2 bg-pi-gray-light p-2 text-sm outline-none focus:border-pi-blue-normal',
-          actualValue && 'border-pi-blue-normal',
-        )}
-        onFocus={() => handleActive(name)}
-        onBlur={() => handleActive(null)}
-      />
-    )}
-    <small className='h-4 self-end text-red-500'>
-      {errors[name]?.message ?? ''}
-    </small>
-  </div>
-);
 
 export const HomeContactForm = () => {
   const {
@@ -93,8 +14,11 @@ export const HomeContactForm = () => {
 
   const onSubmit = async (values: TContact) => console.log(values);
 
-  const [active, setActive] = useState<keyof TContact | null>(null);
-  const handleActive = (input: keyof TContact | null) => setActive(input);
+  const [active, setActive] = useState<keyof TContact | keyof TQuote | null>(
+    null,
+  );
+  const handleActive = (input: keyof TContact | keyof TQuote | null) =>
+    setActive(input);
 
   return (
     <form
@@ -104,7 +28,7 @@ export const HomeContactForm = () => {
       <Input
         register={register}
         name='name'
-        errors={errors}
+        errorMessage={errors.name?.message}
         placeholder='Nombre'
         type='input'
         active={active}
@@ -114,7 +38,7 @@ export const HomeContactForm = () => {
       <Input
         register={register}
         name='email'
-        errors={errors}
+        errorMessage={errors.email?.message}
         placeholder='Correo'
         type='input'
         active={active}
@@ -124,7 +48,7 @@ export const HomeContactForm = () => {
       <Input
         register={register}
         name='phone'
-        errors={errors}
+        errorMessage={errors.phone?.message}
         placeholder='Teléfono'
         type='input'
         active={active}
@@ -134,7 +58,7 @@ export const HomeContactForm = () => {
       <Input
         register={register}
         name='message'
-        errors={errors}
+        errorMessage={errors.message?.message}
         placeholder='Mensaje'
         type='textarea'
         active={active}
