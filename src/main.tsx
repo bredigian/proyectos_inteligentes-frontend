@@ -8,6 +8,7 @@ import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import App from './App.tsx';
+import { Footer } from './components/footer.tsx';
 import { Header } from './components/header.tsx';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       <React.StrictMode>
         <Header />
         <App />
+        <Footer />
       </React.StrictMode>
     ),
   },
