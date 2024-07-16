@@ -14,7 +14,13 @@ export const Header = () => {
   return (
     <header className='sticky top-0 z-50'>
       <div className='relative z-40 flex w-full items-center justify-between bg-white px-6 py-5'>
-        <img alt='Logo de Proyectos Inteligentes' src={logo} className='w-32' />
+        <Link to={'/'}>
+          <img
+            alt='Logo de Proyectos Inteligentes'
+            src={logo}
+            className='w-32'
+          />
+        </Link>
         <button type='button' onClick={handleMenu}>
           <img alt='Icono de Menú' src={menuIcon} className='w-10' />
         </button>
