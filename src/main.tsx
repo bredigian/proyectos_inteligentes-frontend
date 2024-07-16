@@ -7,25 +7,31 @@ import './index.css';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import App from './App.tsx';
-import { Footer } from './components/footer.tsx';
-import { Header } from './components/header.tsx';
+import Home from './pages/home-page.tsx';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { RootLayout } from './layouts/root.tsx';
+import Services from './pages/sections-page.tsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <React.StrictMode>
-        <Header />
-        <App />
-        <Footer />
-      </React.StrictMode>
-    ),
+    element: <RootLayout />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: '/services',
+        element: <Services />,
+      },
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <RouterProvider router={router} />,
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
 );
