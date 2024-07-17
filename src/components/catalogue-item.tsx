@@ -7,7 +7,11 @@ type Props = {
 
 export const CatalogueItem = ({ data }: Props) => (
   <li className='flex flex-col items-center gap-4 bg-pi-gray-ultra-light'>
-    <img src={data.img} alt={`Imágen de ${data.name}`} className='w-full' />
+    <img
+      src={data.image}
+      alt={`Imágen de ${data.name}`}
+      className='w-3/4 p-6 pb-0'
+    />
     <div className='flex flex-col gap-4 p-6'>
       <span className='text-lg font-bold text-pi-blue-normal'>{data.name}</span>
       <p className='text-sm text-pi-gray-normal'>{data.description}</p>

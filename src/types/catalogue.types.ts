@@ -2,7 +2,7 @@ export type TCatalogue = {
   id: string;
   name: string;
   description: string;
-  img: string;
+  image: string;
   typeId: TCatalogueType['id'];
 };
 
