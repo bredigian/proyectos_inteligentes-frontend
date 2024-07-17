@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ReactNode } from 'react';
 // Other sections
 import perforacionesEnConcretoDesktop from '../assets/images/home/desktop/hero_PerforacionesEnConcreto.png';
@@ -20,13 +21,22 @@ import slideMobile5 from '../assets/images/home/mobile/slides/Slide_005.png';
 //------------------
 import { useCarousel } from '../hooks/use-carousel';
 
-const ButtonQuote = () => (
-  <button
+type ButtonProps = {
+  toConcreto?: boolean;
+};
+
+const ButtonQuote = ({ toConcreto }: ButtonProps) => (
+  <Link
     type='button'
+    to={
+      !toConcreto
+        ? '/services/quotes'
+        : '/services/quotes?type=perforaciones_en_concreto'
+    }
     className='rounded-sm bg-pi-gray-ultra-light px-4 py-2.5 text-sm font-bold text-pi-blue-normal'
   >
     Cotizar
-  </button>
+  </Link>
 );
 
 type Props = { children: ReactNode };
@@ -114,9 +124,12 @@ export const SectionHomeHero = () => {
             <p className='px-6 text-lg font-semibold text-pi-gray-light'>
               Nos encargamos de todo el proceso de construcción
             </p>
-            <button className='rounded-sm bg-pi-blue-normal px-4 py-3 text-xl font-bold text-pi-gray-ultra-light shadow-md'>
+            <Link
+              to={'/services/quotes'}
+              className='rounded-sm bg-pi-blue-normal px-4 py-3 text-xl font-bold text-pi-gray-ultra-light shadow-md'
+            >
               Cotizar Proyecto
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -135,7 +148,7 @@ export const SectionHomeHero = () => {
         </div>
         <div className='absolute top-0 flex h-full w-full flex-col items-center justify-center gap-4 text-center'>
           <TitleItem>Perforaciones en concreto</TitleItem>
-          <ButtonQuote />
+          <ButtonQuote toConcreto />
         </div>
       </div>
       <div className='relative col-span-full'>
