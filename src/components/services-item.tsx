@@ -7,20 +7,20 @@ type Props = {
 };
 
 export const ServicesItem = ({ service, toConcreto }: Props) => (
-  <li className='relative flex flex-col gap-4 overflow-hidden rounded-md shadow-xl'>
+  <li className='relative flex max-w-[310.4px] flex-col gap-4 overflow-hidden rounded-md shadow-xl'>
     <div className='image w-full'>
       <img
         src={service.imgMobile}
-        className='h-full w-full'
+        className='xsm:hidden'
         alt={`Imágen mobile de ${service.title}`}
       />
       <img
         src={service.imgDesktop}
-        className='hidden'
+        className='xsm:block hidden'
         alt={`Imágen desktop de ${service.title}`}
       />
     </div>
-    <div className='flex flex-col items-center gap-4 p-4 text-center'>
+    <div className='flex grow flex-col items-center gap-4 p-4 text-center'>
       <span className='text-2xl font-bold text-pi-blue-normal'>
         {service.title}
       </span>
