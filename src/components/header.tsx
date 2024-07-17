@@ -12,7 +12,7 @@ export const Header = () => {
   const handleMenu = () => setShowMenu(!showMenu);
 
   return (
-    <header className='sticky top-0 z-50'>
+    <header className='sticky top-0 z-50 md:flex md:flex-row md:items-center md:bg-white'>
       <div className='relative z-40 flex w-full items-center justify-between bg-white px-6 py-5'>
         <Link to={'/'}>
           <img
@@ -21,22 +21,22 @@ export const Header = () => {
             className='w-32'
           />
         </Link>
-        <button type='button' onClick={handleMenu}>
+        <button className='md:hidden' type='button' onClick={handleMenu}>
           <img alt='Icono de Menú' src={menuIcon} className='w-10' />
         </button>
       </div>
       <nav
         className={cn(
-          'absolute z-30 h-svh w-3/4 bg-white px-6 py-4 shadow-xl duration-200 ease-in-out',
-          !showMenu ? '-translate-x-full' : 'translate-x-0',
+          'absolute z-30 h-svh w-3/4 bg-white px-6 py-4 shadow-xl duration-200 ease-in-out md:relative md:h-fit md:w-fit md:shadow-none',
+          !showMenu ? '-translate-x-full md:translate-x-0' : 'translate-x-0',
         )}
       >
-        <ul className='flex w-full flex-col gap-4'>
+        <ul className='flex w-full flex-col gap-4 md:w-fit md:flex-row'>
           {ROUTES.map((route) => (
             <li
               key={`${route.path}_route`}
               className={cn(
-                'font-semibold',
+                'text-nowrap font-semibold',
                 pathname !== route.path
                   ? 'text-pi-gray-normal'
                   : 'text-pi-blue-normal',
