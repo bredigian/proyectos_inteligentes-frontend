@@ -5,17 +5,17 @@ import telefonoMobile from '../assets/images/contact/mobile/IMG_Teléfono.png';
 
 export const SectionContactImagesContact = () => {
   return (
-    <section className='relative grid grid-cols-2 gap-1'>
-      <div className='relative col-span-full'>
+    <section className='xsm:gap-0 relative grid grid-cols-2 gap-1'>
+      <div className='xsm:col-span-1 relative col-span-full'>
         <div className='w-full'>
           <img
             src={oficinasMobile}
-            className='w-full'
+            className='w-full sm:hidden'
             alt='Imágen mobile de "Oficinas" de Proyectos Inteligentes'
           />
           <img
             src={oficinasDesktop}
-            className='hidden'
+            className='hidden sm:block'
             alt='Imágen desktop de "Oficinas" de Proyectos Inteligentes'
           />
         </div>
@@ -29,16 +29,16 @@ export const SectionContactImagesContact = () => {
           </span>
         </div>
       </div>
-      <div className='relative col-span-full'>
+      <div className='xsm:col-span-1 relative col-span-full'>
         <div className='w-full'>
           <img
             src={telefonoMobile}
-            className='w-full'
+            className='w-full sm:hidden'
             alt='Imágen mobile de "Teléfono" de Proyectos Inteligentes'
           />
           <img
             src={telefonoDesktop}
-            className='hidden'
+            className='hidden sm:block'
             alt='Imágen desktop de "Teléfono" de Proyectos Inteligentes'
           />
         </div>
