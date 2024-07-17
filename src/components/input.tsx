@@ -1,17 +1,32 @@
-import { TContact, TQuote } from '@/types/contact.types';
+import {
+  TContact,
+  TCustomQuote,
+  TPerforation,
+  TQuote,
+} from '@/types/contact.types';
 
 import { UseFormRegister } from 'react-hook-form';
 import { cn } from '@/lib/utils';
 
 type Props = {
-  name: keyof TContact | keyof TQuote;
-  register: UseFormRegister<TContact> | UseFormRegister<TQuote>;
+  name: keyof TContact | keyof TQuote | keyof TCustomQuote;
+  register:
+    | UseFormRegister<TContact>
+    | UseFormRegister<TQuote>
+    | UseFormRegister<TCustomQuote>;
   errorMessage: string | undefined;
   placeholder: string;
   type: 'input' | 'textarea';
 
-  active: keyof TContact | keyof TQuote | null;
-  handleActive: (name: keyof TContact | keyof TQuote | null) => void;
+  active:
+    | keyof TContact
+    | keyof TQuote
+    | keyof TCustomQuote
+    | `${keyof TPerforation}__index__${number}`
+    | null;
+  handleActive: (
+    name: keyof TContact | keyof TQuote | keyof TCustomQuote | null,
+  ) => void;
 
   actualValue: string;
 };
@@ -40,19 +55,22 @@ export const Input = ({
     </label>
     {type === 'input' ? (
       <input
-        {...(register as UseFormRegister<TContact | TQuote>)(name, {
-          required: {
-            value: true,
-            message: 'El atributo es requerido.',
+        {...(register as UseFormRegister<TContact | TQuote | TCustomQuote>)(
+          name,
+          {
+            required: {
+              value: true,
+              message: 'El atributo es requerido.',
+            },
+            pattern:
+              name === 'email'
+                ? {
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                    message: 'El email no es válido.',
+                  }
+                : undefined,
           },
-          pattern:
-            name === 'email'
-              ? {
-                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                  message: 'El email no es válido.',
-                }
-              : undefined,
-        })}
+        )}
         id={name}
         className={cn(
           'rounded-md border-2 bg-pi-gray-light p-2 text-sm outline-none focus:border-pi-blue-normal',
@@ -63,12 +81,15 @@ export const Input = ({
       />
     ) : (
       <textarea
-        {...(register as UseFormRegister<TContact | TQuote>)(name, {
-          required: {
-            value: true,
-            message: 'El atributo es requerido.',
+        {...(register as UseFormRegister<TContact | TQuote | TCustomQuote>)(
+          name,
+          {
+            required: {
+              value: true,
+              message: 'El atributo es requerido.',
+            },
           },
-        })}
+        )}
         className={cn(
           'h-24 resize-none rounded-md border-2 bg-pi-gray-light p-2 text-sm outline-none focus:border-pi-blue-normal',
           actualValue && 'border-pi-blue-normal',
