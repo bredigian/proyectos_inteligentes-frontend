@@ -43,7 +43,7 @@ export default function Catalogue() {
             selectedType={searchParams.get('id')}
           />
           {catalogue.length > 0 ? (
-            <ul className='flex flex-col gap-6 p-6'>
+            <ul className='flex flex-wrap justify-center gap-6 p-6'>
               {catalogue.map((item) => (
                 <CatalogueItem key={item.id} data={item} />
               ))}

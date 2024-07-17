@@ -17,12 +17,16 @@ export const CatalogueFilterBar = ({
   const [showFilters, setShowFilters] = useState(false);
 
   return (
-    <nav className='relative w-full'>
+    <nav className='relative w-full md:flex md:items-center md:justify-between md:shadow-md'>
       <div className='relative z-[30] flex w-full items-center justify-between bg-white px-6 py-5'>
         <span className='text-xl font-bold text-pi-blue-normal'>
           Catálogo de Renta
         </span>
-        <button type='button' onClick={() => setShowFilters(!showFilters)}>
+        <button
+          className='md:hidden'
+          type='button'
+          onClick={() => setShowFilters(!showFilters)}
+        >
           <img
             alt='Selector de tipos de Catálogos'
             src={selectorIcon}
@@ -32,15 +36,17 @@ export const CatalogueFilterBar = ({
       </div>
       <ul
         className={cn(
-          'absolute z-20 flex w-full flex-col items-center gap-4 bg-white py-6 shadow-xl duration-200 ease-in-out',
-          !showFilters ? '-translate-y-[304px]' : 'translate-y-0',
+          'absolute z-20 flex w-full flex-col items-center gap-4 bg-white py-6 shadow-xl duration-200 ease-in-out md:relative md:w-fit md:flex-row md:pr-6 md:shadow-none',
+          !showFilters
+            ? '-translate-y-[304px] md:-translate-y-0'
+            : 'translate-y-0',
         )}
       >
         {data.map((item) => (
           <li
             key={`${item.id}_key`}
             className={cn(
-              'text-lg font-semibold',
+              'cursor-pointer text-lg font-semibold hover:text-pi-blue-normal md:text-sm',
               selectedType !== item.id
                 ? 'text-pi-gray-normal'
                 : 'text-pi-blue-normal',
