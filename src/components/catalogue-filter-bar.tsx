@@ -33,7 +33,7 @@ export const CatalogueFilterBar = ({
       <ul
         className={cn(
           'absolute z-20 flex w-full flex-col items-center gap-4 bg-white py-6 shadow-xl duration-200 ease-in-out',
-          !showFilters ? '-translate-y-64' : 'translate-y-0',
+          !showFilters ? '-translate-y-[304px]' : 'translate-y-0',
         )}
       >
         {data.map((item) => (
