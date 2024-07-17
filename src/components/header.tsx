@@ -36,7 +36,7 @@ export const Header = () => {
             <li
               key={`${route.path}_route`}
               className={cn(
-                'text-nowrap font-semibold',
+                'text-nowrap font-semibold md:hover:text-pi-blue-normal',
                 pathname !== route.path
                   ? 'text-pi-gray-normal'
                   : 'text-pi-blue-normal',

@@ -24,7 +24,7 @@ export const Footer = () => {
             <li
               key={`${route.path}_footer_key`}
               className={cn(
-                'xsm:text-2xl text-xl font-bold',
+                'xsm:text-2xl xsm:hover:text-white/50 text-xl font-bold',
                 route.path !== pathname ? 'text-white' : 'text-white/50',
               )}
             >
