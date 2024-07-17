@@ -10,6 +10,9 @@ export default function Services() {
           <ServicesItem
             key={`${service.title}_service__key`}
             service={service}
+            toConcreto={
+              service.title === 'Perforaciones en Concreto' ? true : false
+            }
           />
         ))}
       </ul>

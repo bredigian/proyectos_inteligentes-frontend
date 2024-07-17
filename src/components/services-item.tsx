@@ -3,9 +3,10 @@ import { TService } from '../types/services.types';
 
 type Props = {
   service: TService;
+  toConcreto?: boolean;
 };
 
-export const ServicesItem = ({ service }: Props) => (
+export const ServicesItem = ({ service, toConcreto }: Props) => (
   <li className='relative flex flex-col gap-4 overflow-hidden rounded-md shadow-xl'>
     <div className='image w-full'>
       <img
@@ -26,7 +27,11 @@ export const ServicesItem = ({ service }: Props) => (
       <p className='text-sm opacity-90'>{service.description}</p>
     </div>
     <Link
-      to={'#'}
+      to={
+        !toConcreto
+          ? '/services/quotes'
+          : '/services/quotes?type=perforaciones_en_concreto'
+      }
       className='w-full bg-pi-blue-normal py-2 text-center font-bold text-white'
     >
       Cotizar
