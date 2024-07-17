@@ -29,6 +29,8 @@ type Props = {
   ) => void;
 
   actualValue: string;
+
+  className?: string;
 };
 
 export const Input = ({
@@ -40,8 +42,9 @@ export const Input = ({
   active,
   handleActive,
   actualValue,
+  className,
 }: Props) => (
-  <div className='relative flex w-full flex-col text-sm'>
+  <div className={cn('relative flex w-full flex-col text-sm', className)}>
     <label
       htmlFor={name as keyof TContact}
       className={cn(
@@ -91,7 +94,7 @@ export const Input = ({
           },
         )}
         className={cn(
-          'h-24 resize-none rounded-md border-2 bg-pi-gray-light p-2 text-sm outline-none focus:border-pi-blue-normal',
+          'h-24 resize-none rounded-md border-2 bg-pi-gray-light p-2 text-sm outline-none focus:border-pi-blue-normal md:h-full',
           actualValue && 'border-pi-blue-normal',
         )}
         onFocus={() => handleActive(name)}

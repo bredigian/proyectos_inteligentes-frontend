@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        xsm: '920px',
+      },
       fontFamily: {
         sans: ['DM Sans', 'sans-serif'],
       },
