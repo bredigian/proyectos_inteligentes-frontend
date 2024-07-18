@@ -20,6 +20,10 @@ module.exports = {
       screens: {
         xsm: '920px',
       },
+      backgroundImage: {
+        perforaciones_en_concreto:
+          'url("./assets/images/services/desktop/PerforacionesEnConcreto001.png")',
+      },
       fontFamily: {
         sans: ['DM Sans', 'sans-serif'],
       },
