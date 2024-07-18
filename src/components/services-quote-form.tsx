@@ -138,10 +138,10 @@ export const ServicesQuoteForm = () => {
           )}
         </div>
       </div>
-      <span className='text-lg font-semibold text-pi-blue-normal'>
+      <span className='text-lg font-semibold text-pi-blue-normal md:self-start'>
         Servicio
       </span>
-      <ul className='flex flex-wrap items-center justify-center gap-2'>
+      <ul className='flex flex-wrap items-center justify-center gap-2 md:justify-start'>
         {SERVICES.filter(
           (service) =>
             service.title !== 'Perforaciones en Concreto' &&
@@ -178,6 +178,7 @@ export const ServicesQuoteForm = () => {
         placeholder='Mensaje'
         errorMessage={errors?.message?.message}
         handleActive={handleActive}
+        className='md:h-48'
       />
       <button
         type='submit'

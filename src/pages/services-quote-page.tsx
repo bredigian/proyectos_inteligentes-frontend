@@ -5,8 +5,9 @@ import {
 
 import cotizarPerforacionesEnConcretoDesktop from '../assets/images/services/desktop/PC_CotizarProyecto_002.png';
 import cotizarPerforacionesEnConcretoMobile from '../assets/images/services/mobile/IMG_PerforacionesEnConcreto_001.png';
-import cotizarProyecto from '../assets/images/services/mobile/IMG_CotizarProyecto_001.png';
 import cotizarProyecto3raImagen from '../assets/images/services/desktop/PC_CotizarProyecto_003.png';
+import cotizarProyectoDesktop from '../assets/images/services/desktop/CotizarProyecto_001.png';
+import cotizarProyectoMobile from '../assets/images/services/mobile/IMG_CotizarProyecto_001.png';
 import perforacionesEnConcretoDesktop from '../assets/images/services/desktop/PerforacionesEnConcreto001.png';
 import { useSearchParams } from 'react-router-dom';
 
@@ -15,15 +16,21 @@ export default function ServicesQuotes() {
 
   if (searchParams.get('type') !== 'perforaciones_en_concreto')
     return (
-      <main className='flex w-full flex-col items-center gap-4'>
-        <div className='w-full'>
+      <main className='grid w-full grid-cols-3 flex-col'>
+        <div className='col-span-full w-full md:col-span-1'>
           <img
-            src={cotizarProyecto}
+            src={cotizarProyectoMobile}
             alt='Imágen mobile de cotización de proyecto.'
+            className='w-full md:hidden'
+          />
+          <img
+            src={cotizarProyectoDesktop}
+            alt='Imágen mobile de cotización de proyecto.'
+            className='hidden h-full object-cover md:block'
           />
         </div>
-        <section className='flex w-full flex-col items-center gap-4 p-4'>
-          <h1 className='text-3xl font-bold text-pi-blue-normal'>
+        <section className='col-span-full mx-auto flex w-full max-w-lg flex-col items-center gap-4 p-4 md:col-span-2 md:my-auto md:items-start'>
+          <h1 className='text-3xl font-bold text-pi-blue-normal md:px-4 xl:max-w-96 xl:text-5xl'>
             Cotizar Proyecto
           </h1>
           <ServicesQuoteForm />
