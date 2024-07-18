@@ -11,8 +11,6 @@ export const Header = () => {
   const { pathname } = useLocation();
   const handleMenu = () => setShowMenu(!showMenu);
 
-  console.log(pathname);
-
   return (
     <header className='sticky top-0 z-50 md:flex md:flex-row md:items-center md:bg-white'>
       <div className='relative z-40 flex w-full items-center justify-between bg-white px-6 py-5'>

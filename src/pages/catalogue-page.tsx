@@ -13,8 +13,13 @@ export default function Catalogue() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [status, setStatus] = useState<TStatus>('pending');
 
-  const { catalogue, catalogueTypes, getCatalogueTypes, getCatalogue } =
-    useCatalogueStore();
+  const {
+    catalogue,
+    filteredCatalogue,
+    catalogueTypes,
+    getCatalogueTypes,
+    getCatalogue,
+  } = useCatalogueStore();
 
   const handleCatalogueType = (id: TCatalogueType['id']) => {
     searchParams.set('id', id);
@@ -31,11 +36,10 @@ export default function Catalogue() {
 
   const fetchData = async () => {
     try {
+      setStatus('pending');
       const id = searchParams.get('id');
       await getCatalogue(id);
-      setTimeout(() => {
-        setStatus('ready');
-      }, 200);
+      setStatus('ready');
     } catch {
       setStatus('error');
     }
@@ -46,7 +50,6 @@ export default function Catalogue() {
   }, []);
 
   useEffect(() => {
-    setStatus('pending');
     fetchData();
   }, [searchParams]);
 
@@ -82,9 +85,9 @@ export default function Catalogue() {
             handleType={handleCatalogueType}
             selectedType={searchParams.get('id')}
           />
-          {catalogue.length > 0 ? (
+          {filteredCatalogue.length > 0 ? (
             <ul className='flex flex-wrap justify-center gap-6 p-6'>
-              {catalogue.map((item) => (
+              {filteredCatalogue.map((item) => (
                 <CatalogueItem key={item.id} data={item} />
               ))}
             </ul>
