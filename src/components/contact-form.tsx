@@ -1,4 +1,4 @@
-import { TContact, TQuote } from '@/types/contact.types';
+import { TContact, TCustomQuote, TQuote } from '@/types/contact.types';
 
 import { Input } from './input';
 import { useForm } from 'react-hook-form';
@@ -14,11 +14,12 @@ export const HomeContactForm = () => {
 
   const onSubmit = async (values: TContact) => console.log(values);
 
-  const [active, setActive] = useState<keyof TContact | keyof TQuote | null>(
-    null,
-  );
-  const handleActive = (input: keyof TContact | keyof TQuote | null) =>
-    setActive(input);
+  const [active, setActive] = useState<
+    keyof TContact | keyof TQuote | keyof TCustomQuote | null
+  >(null);
+  const handleActive = (
+    input: keyof TContact | keyof TQuote | keyof TCustomQuote | null,
+  ) => setActive(input);
 
   return (
     <form
