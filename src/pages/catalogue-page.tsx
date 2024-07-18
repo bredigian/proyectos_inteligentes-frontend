@@ -1,3 +1,4 @@
+import { Link, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import { CatalogueFilterBar } from '../components/catalogue-filter-bar';
@@ -5,9 +6,8 @@ import { CatalogueItem } from '../components/catalogue-item';
 import { Loader2 } from 'lucide-react';
 import { TCatalogueType } from '../types/catalogue.types';
 import { useCatalogueStore } from '../store/catalogue.store';
-import { useSearchParams } from 'react-router-dom';
 
-type TStatus = 'pending' | 'ready';
+type TStatus = 'pending' | 'ready' | 'error';
 
 export default function Catalogue() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -21,11 +21,24 @@ export default function Catalogue() {
     setSearchParams(searchParams);
   };
 
-  const fetchTypes = async () => await getCatalogueTypes();
+  const fetchTypes = async () => {
+    try {
+      await getCatalogueTypes();
+    } catch {
+      setStatus('error');
+    }
+  };
 
   const fetchData = async () => {
-    const id = searchParams.get('id');
-    await getCatalogue(id);
+    try {
+      const id = searchParams.get('id');
+      await getCatalogue(id);
+      setTimeout(() => {
+        setStatus('ready');
+      }, 200);
+    } catch {
+      setStatus('error');
+    }
   };
 
   useEffect(() => {
@@ -35,9 +48,6 @@ export default function Catalogue() {
   useEffect(() => {
     setStatus('pending');
     fetchData();
-    setTimeout(() => {
-      setStatus('ready');
-    }, 600);
   }, [searchParams]);
 
   if (status === 'pending')
@@ -47,6 +57,20 @@ export default function Catalogue() {
       </main>
     );
 
+  if (status === 'error')
+    return (
+      <main className='flex h-[80vh] w-full flex-col items-center justify-center gap-12 px-6'>
+        <span className='text-center md:text-lg'>
+          Se ha producido un error. Intente nuevamente mas tarde.
+        </span>
+        <Link
+          to='/'
+          className='rounded-sm bg-pi-blue-normal px-3 py-2 text-lg font-semibold text-white'
+        >
+          Ir al Inicio
+        </Link>
+      </main>
+    );
   return (
     <main className='flex flex-col items-center gap-4'>
       {catalogue instanceof Error ? (
