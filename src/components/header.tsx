@@ -11,6 +11,8 @@ export const Header = () => {
   const { pathname } = useLocation();
   const handleMenu = () => setShowMenu(!showMenu);
 
+  console.log(pathname);
+
   return (
     <header className='sticky top-0 z-50 md:flex md:flex-row md:items-center md:bg-white'>
       <div className='relative z-40 flex w-full items-center justify-between bg-white px-6 py-5'>
@@ -32,21 +34,26 @@ export const Header = () => {
         )}
       >
         <ul className='flex w-full flex-col gap-4 md:w-fit md:flex-row'>
-          {ROUTES.map((route) => (
-            <li
-              key={`${route.path}_route`}
-              className={cn(
-                'text-nowrap font-semibold md:hover:text-pi-blue-normal',
-                pathname !== route.path
-                  ? 'text-pi-gray-normal'
-                  : 'text-pi-blue-normal',
-              )}
-            >
-              <Link to={route.path} onClick={handleMenu}>
-                {route.name}
-              </Link>
-            </li>
-          ))}
+          {ROUTES.map((route) => {
+            const activePath =
+              route.name !== 'Servicios'
+                ? pathname === route.path
+                : pathname.includes('services');
+
+            return (
+              <li
+                key={`${route.path}_route`}
+                className={cn(
+                  'text-nowrap font-semibold md:hover:text-pi-blue-normal',
+                  !activePath ? 'text-pi-gray-normal' : 'text-pi-blue-normal',
+                )}
+              >
+                <Link to={route.path} onClick={handleMenu}>
+                  {route.name}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </header>

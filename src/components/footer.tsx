@@ -20,17 +20,23 @@ export const Footer = () => {
       </div>
       <div className='xsm:col-span-2 xsm:flex-row xsm:p-24 xsm:gap-16 xsm:justify-center col-span-full flex w-full flex-col items-center gap-4 bg-pi-blue-normal p-8'>
         <ul className='xsm:items-start flex flex-col items-center gap-4'>
-          {ROUTES.map((route) => (
-            <li
-              key={`${route.path}_footer_key`}
-              className={cn(
-                'xsm:text-2xl xsm:hover:text-white/50 text-xl font-bold',
-                route.path !== pathname ? 'text-white' : 'text-white/50',
-              )}
-            >
-              <Link to={route.path}>{route.name}</Link>
-            </li>
-          ))}
+          {ROUTES.map((route) => {
+            const activePath =
+              route.name !== 'Servicios'
+                ? pathname === route.path
+                : pathname.includes('services');
+            return (
+              <li
+                key={`${route.path}_footer_key`}
+                className={cn(
+                  'xsm:text-2xl xsm:hover:text-white/50 text-xl font-bold',
+                  !activePath ? 'text-white' : 'text-white/50',
+                )}
+              >
+                <Link to={route.path}>{route.name}</Link>
+              </li>
+            );
+          })}
         </ul>
         <div className='xsm:items-start xsm:justify-start flex h-full flex-col items-center gap-4'>
           <span className='xsm:bg-pi-blue-normal xsm:text-white xsm:px-0 bg-white px-6 text-lg font-bold text-pi-blue-normal'>
