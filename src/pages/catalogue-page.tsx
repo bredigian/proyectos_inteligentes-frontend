@@ -6,10 +6,25 @@ import { CatalogueItem } from '../components/catalogue-item';
 import { Loader2 } from 'lucide-react';
 import { TCatalogueType } from '../types/catalogue.types';
 import { useCatalogueStore } from '../store/catalogue.store';
+import { useSEO } from '@/hooks/use-seo';
 
 type TStatus = 'pending' | 'ready' | 'error';
 
 export default function Catalogue() {
+  useSEO({
+    title: 'Catálogo | Proyectos Inteligentes',
+    description: 'Sección de catálogo de renta de Proyectos Inteligentes.',
+    keywords: [
+      'Proyectos Inteligentes',
+      'construcción',
+      'perforaciones',
+      'renta',
+      'catálogo',
+      'remodelaciones',
+      'cotizaciones',
+    ],
+  });
+
   const [searchParams, setSearchParams] = useSearchParams();
   const [status, setStatus] = useState<TStatus>('pending');
 

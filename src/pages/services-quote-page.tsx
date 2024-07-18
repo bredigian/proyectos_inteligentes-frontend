@@ -9,9 +9,25 @@ import cotizarProyecto3raImagen from '../assets/images/services/desktop/PC_Cotiz
 import cotizarProyectoDesktop from '../assets/images/services/desktop/CotizarProyecto_001.png';
 import cotizarProyectoMobile from '../assets/images/services/mobile/IMG_CotizarProyecto_001.png';
 import perforacionesEnConcretoDesktop from '../assets/images/services/desktop/PerforacionesEnConcreto001.png';
+import { useSEO } from '@/hooks/use-seo';
 import { useSearchParams } from 'react-router-dom';
 
 export default function ServicesQuotes() {
+  useSEO({
+    title: 'Cotizaciones | Proyectos Inteligentes',
+    description: 'Sección de cotizaciones de Proyectos Inteligentes.',
+    keywords: [
+      'Proyectos Inteligentes',
+      'servicios',
+      'cotizaciones',
+      'construcción',
+      'perforaciones',
+      'renta',
+      'remodelaciones',
+      'cotizaciones',
+    ],
+  });
+
   const [searchParams] = useSearchParams();
 
   if (searchParams.get('type') !== 'perforaciones_en_concreto')
@@ -47,7 +63,7 @@ export default function ServicesQuotes() {
             className='hidden w-full md:block'
             src={perforacionesEnConcretoDesktop}
           />
-          <span className='xsm:text-4xl text-center text-2xl font-bold text-pi-blue-normal md:absolute md:text-3xl md:text-white xl:text-5xl'>
+          <span className='text-center text-2xl font-bold text-pi-blue-normal md:absolute md:text-3xl md:text-white xsm:text-4xl xl:text-5xl'>
             Perforaciones en concreto
           </span>
         </div>

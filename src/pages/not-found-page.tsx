@@ -1,6 +1,20 @@
 import { Link } from 'react-router-dom';
+import { useSEO } from '@/hooks/use-seo';
 
 export default function PageNotFound() {
+  useSEO({
+    title: '404 | Proyectos Inteligentes',
+    description: '404 - Página no encontrada.',
+    keywords: [
+      'Proyectos Inteligentes',
+      'construcción',
+      'perforaciones',
+      'renta',
+      'remodelaciones',
+      'cotizaciones',
+    ],
+  });
+
   return (
     <main className='flex h-[80vh] w-full flex-col items-center justify-center gap-12 px-6 text-center md:flex-row xsm:gap-24'>
       <span className='text-7xl md:mb-16 xsm:text-8xl'>404</span>
