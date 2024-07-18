@@ -10,6 +10,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Catalogue from './pages/catalogue-page.tsx';
 import Contact from './pages/contact-page.tsx';
 import Home from './pages/home-page.tsx';
+import PageNotFound from './pages/not-found-page.tsx';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RootLayout } from './layouts/root.tsx';
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact />,
+      },
+      {
+        path: '*',
+        element: <PageNotFound />,
       },
     ],
   },
