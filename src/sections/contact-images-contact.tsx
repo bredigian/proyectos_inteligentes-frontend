@@ -1,12 +1,12 @@
-import oficinasDesktop from '../assets/images/contact/desktop/IMG_Oficinas.png';
-import oficinasMobile from '../assets/images/contact/mobile/IMG_Oficinas.png';
-import telefonoDesktop from '../assets/images/contact/desktop/IMG_Teléfono.png';
-import telefonoMobile from '../assets/images/contact/mobile/IMG_Teléfono.png';
+import oficinasDesktop from '../assets/images/contact/desktop/IMG_Oficinas.jpg';
+import oficinasMobile from '../assets/images/contact/mobile/IMG_Oficinas.jpg';
+import telefonoDesktop from '../assets/images/contact/desktop/IMG_Teléfono.jpg';
+import telefonoMobile from '../assets/images/contact/mobile/IMG_Teléfono.jpg';
 
 export const SectionContactImagesContact = () => {
   return (
-    <section className='xsm:gap-0 relative grid grid-cols-2 gap-1'>
-      <div className='xsm:col-span-1 relative col-span-full'>
+    <section className='relative grid grid-cols-2 gap-1 xsm:gap-0'>
+      <div className='relative col-span-full xsm:col-span-1'>
         <div className='w-full'>
           <img
             src={oficinasMobile}
@@ -29,7 +29,7 @@ export const SectionContactImagesContact = () => {
           </span>
         </div>
       </div>
-      <div className='xsm:col-span-1 relative col-span-full'>
+      <div className='relative col-span-full xsm:col-span-1'>
         <div className='w-full'>
           <img
             src={telefonoMobile}

@@ -1,18 +1,18 @@
 import { TService } from '../types/services.types';
-import construccionDesktop from '../assets/images/services/desktop/SERV_Construcción.png';
-import construccionMobile from '../assets/images/services/mobile/SERV_Construcción.png';
-import constructionManagmentDesktop from '../assets/images/services/desktop/SERV_ConstructionManagment.png';
-import constructionManagmentMobile from '../assets/images/services/mobile/SERV_ConstructionManagment.png';
-import demolicionesDesktop from '../assets/images/services/desktop/SERV_Demoliciones.png';
-import demolicionesMobile from '../assets/images/services/mobile/SERV_Demoliciones.png';
-import perforacionesEnConcretoDesktop from '../assets/images/services/desktop/SERV_Perforaciones.png';
-import perforacionesEnConcretoMobile from '../assets/images/services/mobile/SERV_Perforaciones.png';
-import planificacionDeConstruccionDesktop from '../assets/images/services/desktop/SERV_Planificación.png';
-import planificacionDeConstruccionMobile from '../assets/images/services/mobile/SERV_Planificación.png';
-import remodelacionesDesktop from '../assets/images/services/desktop/SERV_Remodelaciones.png';
-import remodelacionesMobile from '../assets/images/services/mobile/SERV_Remodelaciones.png';
-import supervisionTecnicaDesktop from '../assets/images/services/desktop/SERV_Supervision.png';
-import supervisionTecnicaMobile from '../assets/images/services/mobile/SERV_Supervision.png';
+import construccionDesktop from '../assets/images/services/desktop/SERV_Construcción.jpg';
+import construccionMobile from '../assets/images/services/mobile/SERV_Construcción.jpg';
+import constructionManagmentDesktop from '../assets/images/services/desktop/SERV_ConstructionManagment.jpg';
+import constructionManagmentMobile from '../assets/images/services/mobile/SERV_ConstructionManagment.jpg';
+import demolicionesDesktop from '../assets/images/services/desktop/SERV_Demoliciones.jpg';
+import demolicionesMobile from '../assets/images/services/mobile/SERV_Demoliciones.jpg';
+import perforacionesEnConcretoDesktop from '../assets/images/services/desktop/SERV_Perforaciones.jpg';
+import perforacionesEnConcretoMobile from '../assets/images/services/mobile/SERV_Perforaciones.jpg';
+import planificacionDeConstruccionDesktop from '../assets/images/services/desktop/SERV_Planificación.jpg';
+import planificacionDeConstruccionMobile from '../assets/images/services/mobile/SERV_Planificación.jpg';
+import remodelacionesDesktop from '../assets/images/services/desktop/SERV_Remodelaciones.jpg';
+import remodelacionesMobile from '../assets/images/services/mobile/SERV_Remodelaciones.jpg';
+import supervisionTecnicaDesktop from '../assets/images/services/desktop/SERV_Supervision.jpg';
+import supervisionTecnicaMobile from '../assets/images/services/mobile/SERV_Supervision.jpg';
 
 export const SERVICES: TService[] = [
   {
