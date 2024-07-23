@@ -3,12 +3,12 @@ import {
   ServicesQuoteForm,
 } from '@/components/services-quote-form';
 
-import cotizarPerforacionesEnConcretoDesktop from '../assets/images/services/desktop/PC_CotizarProyecto_002.png';
-import cotizarPerforacionesEnConcretoMobile from '../assets/images/services/mobile/IMG_PerforacionesEnConcreto_001.png';
-import cotizarProyecto3raImagen from '../assets/images/services/desktop/PC_CotizarProyecto_003.png';
-import cotizarProyectoDesktop from '../assets/images/services/desktop/CotizarProyecto_001.png';
-import cotizarProyectoMobile from '../assets/images/services/mobile/IMG_CotizarProyecto_001.png';
-import perforacionesEnConcretoDesktop from '../assets/images/services/desktop/PerforacionesEnConcreto001.png';
+import cotizarPerforacionesEnConcretoDesktop from '../assets/images/services/desktop/PC_CotizarProyecto_002.jpg';
+import cotizarPerforacionesEnConcretoMobile from '../assets/images/services/mobile/IMG_PerforacionesEnConcreto_001.jpg';
+import cotizarProyecto3raImagen from '../assets/images/services/desktop/PC_CotizarProyecto_003.jpg';
+import cotizarProyectoDesktop from '../assets/images/services/desktop/CotizarProyecto_001.jpg';
+import cotizarProyectoMobile from '../assets/images/services/mobile/IMG_CotizarProyecto_001.jpg';
+import perforacionesEnConcretoDesktop from '../assets/images/services/desktop/PerforacionesEnConcreto001.jpg';
 import { useSEO } from '@/hooks/use-seo';
 import { useSearchParams } from 'react-router-dom';
 

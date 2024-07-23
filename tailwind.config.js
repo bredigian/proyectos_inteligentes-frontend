@@ -22,7 +22,7 @@ module.exports = {
       },
       backgroundImage: {
         perforaciones_en_concreto:
-          'url("./assets/images/services/desktop/PerforacionesEnConcreto001.png")',
+          'url("./assets/images/services/desktop/PerforacionesEnConcreto001.jpg")',
       },
       fontFamily: {
         sans: ['DM Sans', 'sans-serif'],
