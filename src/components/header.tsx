@@ -34,9 +34,11 @@ export const Header = () => {
         <ul className='flex w-full flex-col gap-4 md:w-fit md:flex-row'>
           {ROUTES.map((route) => {
             const activePath =
-              route.name !== 'Servicios'
-                ? pathname === route.path
-                : pathname.includes('services');
+              route.name === 'Catálogo de Renta'
+                ? pathname.includes('catalogue')
+                : route.name !== 'Servicios'
+                  ? pathname === route.path
+                  : pathname.includes('services');
 
             return (
               <li

@@ -11,8 +11,13 @@ import { useSEO } from '@/hooks/use-seo';
 type TStatus = 'pending' | 'ready' | 'error';
 
 export default function Catalogue() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [status, setStatus] = useState<TStatus>('pending');
+
+  const param = searchParams.get('id');
+
   useSEO({
-    title: 'Catálogo | Proyectos Inteligentes',
+    title: `Catálogo ${param ? `de ${param}` : ''} | Proyectos Inteligentes`,
     description: 'Sección de catálogo de renta de Proyectos Inteligentes.',
     keywords: [
       'Proyectos Inteligentes',
@@ -20,13 +25,10 @@ export default function Catalogue() {
       'perforaciones',
       'renta',
       'catálogo',
-      'remodelaciones',
+      'demolicion',
       'cotizaciones',
     ],
   });
-
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [status, setStatus] = useState<TStatus>('pending');
 
   const {
     catalogue,
@@ -107,7 +109,9 @@ export default function Catalogue() {
               ))}
             </ul>
           ) : (
-            <span>No se encontraron productos en el catálogo.</span>
+            <span className='p-24'>
+              No se encontraron productos en el catálogo.
+            </span>
           )}
         </>
       )}

@@ -10,7 +10,7 @@ export default function PageNotFound() {
       'construcción',
       'perforaciones',
       'renta',
-      'remodelaciones',
+      'demolicion',
       'cotizaciones',
     ],
   });

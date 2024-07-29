@@ -12,7 +12,7 @@ export default function Home() {
       'construcción',
       'perforaciones',
       'renta',
-      'remodelaciones',
+      'demolicion',
       'cotizaciones',
     ],
   });

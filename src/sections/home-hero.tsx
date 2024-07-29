@@ -186,7 +186,7 @@ export const SectionHomeHero = () => {
             />
           </div>
           <div className='absolute top-0 flex h-full w-full flex-col items-center justify-center gap-4 text-center'>
-            <TitleItem>Remodelaciones</TitleItem>
+            <TitleItem>Demolición</TitleItem>
             <ButtonQuote />
           </div>
         </div>
