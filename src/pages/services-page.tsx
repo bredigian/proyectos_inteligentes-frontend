@@ -12,13 +12,13 @@ export default function Services() {
       'construcción',
       'perforaciones',
       'renta',
-      'remodelaciones',
+      'demolicion',
       'cotizaciones',
     ],
   });
 
   return (
-    <main className='flex w-full flex-col items-center gap-12 p-4'>
+    <main className='flex w-full flex-col items-center gap-12 p-4 xsm:pb-12'>
       <span className='text-2xl font-bold text-pi-blue-normal xsm:text-3xl xl:text-4xl'>
         Servicios
       </span>

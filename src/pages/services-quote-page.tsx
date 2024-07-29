@@ -23,7 +23,7 @@ export default function ServicesQuotes() {
       'construcción',
       'perforaciones',
       'renta',
-      'remodelaciones',
+      'demolicion',
       'cotizaciones',
     ],
   });

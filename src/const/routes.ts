@@ -13,7 +13,7 @@ export const ROUTES: TRoute[] = [
     name: 'Servicios',
   },
   {
-    path: '/catalogue',
+    path: '/catalogue?id=demolición',
     name: 'Catálogo de Renta',
   },
   {
