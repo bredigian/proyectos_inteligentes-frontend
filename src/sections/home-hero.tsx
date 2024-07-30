@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
 import { ReactNode } from 'react';
+import demolicionesDesktop from '../assets/images/home/desktop/IMG_Demoliciones.jpg';
 // Other sections
 import perforacionesEnConcretoDesktop from '../assets/images/home/desktop/hero_PerforacionesEnConcreto.jpg';
 import perforacionesEnConcretoMobile from '../assets/images/home/mobile/hero_PerforacionesEnConcreto.jpg';
-import remodelacionesDesktop from '../assets/images/home/desktop/hero_Remodelaciones.jpg';
-import remodelacionesMobile from '../assets/images/home/mobile/hero_Remodelaciones.jpg';
 import rentaDeEquiposDesktop from '../assets/images/home/desktop/hero_RentaDeEquipos.jpg';
 import rentaDeEquiposMobile from '../assets/images/home/mobile/hero_RentaDeEquipos.jpg';
 // Slider Images
@@ -177,12 +176,12 @@ export const SectionHomeHero = () => {
             <img
               alt='Imágen para mobile de Remodelaciones'
               className='h-full w-full object-cover xsm:hidden'
-              src={remodelacionesMobile}
+              src={demolicionesDesktop}
             />
             <img
               alt='Imágen para desktop de Remodelaciones'
               className='hidden h-full w-full object-cover xsm:block'
-              src={remodelacionesDesktop}
+              src={demolicionesDesktop}
             />
           </div>
           <div className='absolute top-0 flex h-full w-full flex-col items-center justify-center gap-4 text-center'>
