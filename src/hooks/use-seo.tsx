@@ -40,8 +40,6 @@ export const useSEO = ({ title, description, keywords }: Props) => {
     const metaDescription = document.querySelector('meta[name="description"]');
     const previousDescription = prevDescription.current;
 
-    console.log(metaDescription);
-
     if (description) {
       metaDescription?.setAttribute('content', description);
     }
