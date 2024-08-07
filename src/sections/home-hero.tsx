@@ -123,7 +123,7 @@ export const SectionHomeHero = () => {
               Soluciones para tu construcción
             </span>
             <p className='px-6 text-lg font-semibold text-pi-gray-light xl:max-w-md'>
-              Nos encargamos de todo el proceso de construcción
+              Te apoyamos en todo el proceso de construcción
             </p>
             <Link
               to={'/services/quotes'}
