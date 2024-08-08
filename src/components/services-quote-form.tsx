@@ -191,6 +191,7 @@ export const ServicesQuoteForm = () => {
       />
       <button
         type='submit'
+        disabled={isSubmitting}
         className='w-full rounded-sm bg-pi-blue-normal py-2 text-sm font-bold text-white'
       >
         {!isSubmitting ? 'Solicitar cotización' : 'Solicitando...'}
@@ -467,6 +468,7 @@ export const ServicesCustomQuoteForm = () => {
       </div>
       <button
         type='submit'
+        disabled={isSubmitting}
         className='w-full rounded-sm bg-pi-blue-normal py-3 text-sm font-bold text-white'
       >
         {!isSubmitting ? 'Solicitar cotización' : 'Solicitando...'}
