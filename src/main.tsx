@@ -16,6 +16,7 @@ import ReactDOM from 'react-dom/client';
 import { RootLayout } from './layouts/root.tsx';
 import Services from './pages/services-page.tsx';
 import ServicesQuotes from './pages/services-quote-page.tsx';
+import { Toaster } from 'sonner';
 
 const router = createBrowserRouter([
   {
@@ -53,5 +54,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <Toaster />
   </React.StrictMode>,
 );
