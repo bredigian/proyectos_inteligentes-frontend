@@ -1,6 +1,7 @@
 import { Controller, useForm } from 'react-hook-form';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { TCustomQuote, TPerforation, TQuote } from '@/types/contact.types';
+import { sendCustomQuote, sendQuote } from '@/services/contact.service';
 
 import { Calendar } from './ui/calendar';
 import { CalendarIcon } from 'lucide-react';
@@ -8,6 +9,7 @@ import { Input } from './input';
 import { SERVICES } from '@/content/services';
 import { TService } from '@/types/services.types';
 import { cn } from '@/lib/utils';
+import { toast } from 'sonner';
 import { useDebouncedCallback } from 'use-debounce';
 import { useState } from 'react';
 
@@ -19,6 +21,7 @@ export const ServicesQuoteForm = () => {
     formState: { errors, isSubmitting },
     watch,
     getValues,
+    reset,
   } = useForm<TQuote>();
 
   const [selectedServices, setSelectedServices] = useState<TService['title'][]>(
@@ -50,7 +53,13 @@ export const ServicesQuoteForm = () => {
       services: selectedServices,
     };
 
-    console.log(payload);
+    try {
+      await sendQuote(payload);
+      toast.success('Solicitud de cotización enviada exitosamente.');
+      reset();
+    } catch (error) {
+      if (error instanceof Error) toast.error(error.message);
+    }
   };
 
   const [active, setActive] = useState<
@@ -196,6 +205,7 @@ export const ServicesCustomQuoteForm = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
     watch,
+    reset,
   } = useForm<TCustomQuote>();
 
   const [active, setActive] = useState<
@@ -248,7 +258,14 @@ export const ServicesCustomQuoteForm = () => {
       ...values,
       perforations,
     };
-    console.log(payload);
+
+    try {
+      await sendCustomQuote(payload);
+      toast.success('Solicitud de cotización enviada exitosamente.');
+      reset();
+    } catch (error) {
+      if (error instanceof Error) toast.error(error.message);
+    }
   };
 
   return (
@@ -380,7 +397,7 @@ export const ServicesCustomQuoteForm = () => {
             {perforations.map((item, index) => (
               <li
                 key={index}
-                className='flex w-full items-center gap-2 xl:justify-between'
+                className='flex w-full items-center gap-2 first:mt-4 xl:justify-between'
               >
                 <div className='relative flex w-full flex-col text-sm'>
                   <label

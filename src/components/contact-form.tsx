@@ -1,6 +1,8 @@
 import { TContact, TCustomQuote, TQuote } from '@/types/contact.types';
 
 import { Input } from './input';
+import { sendEmail } from '@/services/contact.service';
+import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 
@@ -10,9 +12,18 @@ export const HomeContactForm = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
     watch,
+    reset,
   } = useForm<TContact>();
 
-  const onSubmit = async (values: TContact) => console.log(values);
+  const onSubmit = async (values: TContact) => {
+    try {
+      await sendEmail(values);
+      toast.success('Formulario enviado exitosamente.');
+      reset();
+    } catch (error) {
+      if (error instanceof Error) toast.error(error.message);
+    }
+  };
 
   const [active, setActive] = useState<
     keyof TContact | keyof TQuote | keyof TCustomQuote | null
