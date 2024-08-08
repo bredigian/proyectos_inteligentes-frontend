@@ -83,6 +83,7 @@ export const HomeContactForm = () => {
       />
       <button
         type='submit'
+        disabled={isSubmitting}
         className='row col-span-full row-span-1 w-full rounded-md bg-pi-blue-light py-2 text-sm font-bold text-white shadow-sm shadow-slate-500 md:col-span-1 md:h-[39px]'
       >
         {!isSubmitting ? 'Enviar mensaje' : 'Enviando...'}
